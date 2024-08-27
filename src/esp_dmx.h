@@ -26,7 +26,7 @@ extern "C" {
  * initialize a dmx_config_t to the standard's defined typical values.
  */
 #define DMX_DEFAULT_CONFIG \
-  { .baud_rate = DMX_TYP_BAUD_RATE, .break_num = 44, .idle_num = 3, }
+    { .baud_rate = DMX_TYP_BAUD_RATE, .break_num = 44, .idle_num = 3, }
 
 /// Driver Functions  #########################################################
 /**
@@ -45,8 +45,7 @@ extern "C" {
  * @retval ESP_ERR_NO_MEM if there is not enough memory.
  * @retval ESP_ERR_INVALID_STATE if the driver already installed.
  * */
-esp_err_t dmx_driver_install(dmx_port_t dmx_num, uint16_t buffer_size, 
-                             uint32_t queue_size, QueueHandle_t *dmx_queue, 
+esp_err_t dmx_driver_install(dmx_port_t dmx_num, uint16_t buffer_size, uint32_t queue_size, QueueHandle_t *dmx_queue,
                              int intr_alloc_flags);
 
 /**
@@ -143,8 +142,7 @@ bool dmx_is_sniffer_enabled(dmx_port_t dmx_num);
  * @retval ESP_OK on success.
  * @retval ESP_ERR_INVALID_ARG if there was an argument error.
  * */
-esp_err_t dmx_set_pin(dmx_port_t dmx_num, int tx_io_num, int rx_io_num,
-                      int rts_io_num);
+esp_err_t dmx_set_pin(dmx_port_t dmx_num, int tx_io_num, int rx_io_num, int rts_io_num);
 
 /**
  * @brief Set DMX configuration parameters.
@@ -233,8 +231,7 @@ esp_err_t dmx_get_idle_num(dmx_port_t dmx_num, uint16_t *idle_num);
  * @retval ESP_OK on success.
  * @retval ESP_ERR_INVALID_ARG if there was an argument error.
  */
-esp_err_t dmx_intr_config(dmx_port_t dmx_num,
-                          const dmx_intr_config_t *intr_conf);
+esp_err_t dmx_intr_config(dmx_port_t dmx_num, const dmx_intr_config_t *intr_conf);
 
 /**
  * @brief Configure DMX rx full interrupt threshold.
@@ -314,8 +311,7 @@ esp_err_t dmx_read_slot(dmx_port_t dmx_num, uint16_t slot_idx, uint8_t *value);
  * @retval ESP_ERR_INVALID_STATE if the driver was not installed.
  * @retval ESP_FAIL on driver error.
  */
-esp_err_t dmx_write_packet(dmx_port_t dmx_num, const void *buffer,
-                           uint16_t size);
+esp_err_t dmx_write_packet(dmx_port_t dmx_num, const void *buffer, uint16_t size);
 
 /**
  * @brief Write a slot value to the DMX bus.
@@ -327,8 +323,7 @@ esp_err_t dmx_write_packet(dmx_port_t dmx_num, const void *buffer,
  * @retval ESP_ERR_INVALID_ARG if there was an argument error.
  * @retval ESP_ERR_INVALID_STATE if the driver was not installed.
  */
-esp_err_t dmx_write_slot(dmx_port_t dmx_num, uint16_t slot_idx,
-                         const uint8_t value);
+esp_err_t dmx_write_slot(dmx_port_t dmx_num, uint16_t slot_idx, const uint8_t value);
 
 /**
  * @brief Transmits a packet of DMX. This sends the number of slots as was
