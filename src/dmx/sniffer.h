@@ -6,7 +6,7 @@
  */
 #pragma once
 
-#include "dmx/include/types.h"
+#include "./include/types.h"
 
 #ifdef __cplusplus
 extern "C" {

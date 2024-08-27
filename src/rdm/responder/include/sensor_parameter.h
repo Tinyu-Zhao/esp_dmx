@@ -8,10 +8,12 @@
  */
 #pragma once
 
-#include "dmx/include/parameter.h"
-#include "dmx/include/types.h"
-#include "rdm/include/types.h"
-#include "rdm/responder.h"
+#include "../../../dmx/include/parameter.h"
+#include "../../../dmx/include/types.h"
+#include "../../include/types.h"
+#include "../../responder.h"
+
+
 
 #ifdef __cplusplus
 extern "C" {

@@ -10,8 +10,8 @@
  */
 #pragma once
 
-#include "dmx/include/types.h"
-#include "rdm/include/types.h"
+#include "../include/types.h"
+#include "../../rdm/include/types.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -45,8 +45,7 @@ bool dmx_sub_device_exists(dmx_port_t dmx_num, dmx_device_num_t device_num);
  * @return true if the parameter exists.
  * @return false if the parameter does not exist.
  */
-bool dmx_parameter_exists(dmx_port_t dmx_num, rdm_sub_device_t sub_device,
-                          rdm_pid_t pid);
+bool dmx_parameter_exists(dmx_port_t dmx_num, rdm_sub_device_t sub_device, rdm_pid_t pid);
 
 /**
  * @brief Get the PID of the parameter at a given index.
@@ -57,8 +56,7 @@ bool dmx_parameter_exists(dmx_port_t dmx_num, rdm_sub_device_t sub_device,
  * @return The PID of the parameter at the index or 0 if the parameter does not
  * exist.
  */
-rdm_pid_t dmx_parameter_at(dmx_port_t dmx_num, rdm_sub_device_t sub_device,
-                           uint32_t index);
+rdm_pid_t dmx_parameter_at(dmx_port_t dmx_num, rdm_sub_device_t sub_device, uint32_t index);
 
 /**
  * @brief Get the size of the desired parameter.
@@ -68,8 +66,7 @@ rdm_pid_t dmx_parameter_at(dmx_port_t dmx_num, rdm_sub_device_t sub_device,
  * @param pid The parameter ID of the desired parameter.
  * @return The size of the parameter.
  */
-size_t dmx_parameter_size(dmx_port_t dmx_num, rdm_sub_device_t sub_device,
-                          rdm_pid_t pid);
+size_t dmx_parameter_size(dmx_port_t dmx_num, rdm_sub_device_t sub_device, rdm_pid_t pid);
 
 /**
  * @brief Get a pointer to the desired parameter. The returned pointer, if it
@@ -80,8 +77,7 @@ size_t dmx_parameter_size(dmx_port_t dmx_num, rdm_sub_device_t sub_device,
  * @param pid The parameter ID of the desired parameter.
  * @return A pointer to the desired parameter or NULL on failure.
  */
-void *dmx_parameter_get_data(dmx_port_t dmx_num, rdm_sub_device_t sub_device,
-                             rdm_pid_t pid);
+void *dmx_parameter_get_data(dmx_port_t dmx_num, rdm_sub_device_t sub_device, rdm_pid_t pid);
 
 /**
  * @brief Copies the desired parameter to a destination buffer. Unlike
@@ -97,8 +93,8 @@ void *dmx_parameter_get_data(dmx_port_t dmx_num, rdm_sub_device_t sub_device,
  * @param size The size of the destination buffer.
  * @return The number of bytes that were copied into the destination buffer.
  */
-size_t dmx_parameter_copy(dmx_port_t dmx_num, rdm_sub_device_t sub_device,
-                          rdm_pid_t pid, void *destination, size_t size);
+size_t dmx_parameter_copy(dmx_port_t dmx_num, rdm_sub_device_t sub_device, rdm_pid_t pid, void *destination,
+                          size_t size);
 
 /**
  * @brief Sets the value of a desired parameter.
@@ -110,8 +106,8 @@ size_t dmx_parameter_copy(dmx_port_t dmx_num, rdm_sub_device_t sub_device,
  * @param size The size of the source buffer.
  * @return The number of bytes written to the parameter.
  */
-size_t dmx_parameter_set(dmx_port_t dmx_num, rdm_sub_device_t sub_device,
-                         rdm_pid_t pid, const void *source, size_t size);
+size_t dmx_parameter_set(dmx_port_t dmx_num, rdm_sub_device_t sub_device, rdm_pid_t pid, const void *source,
+                         size_t size);
 
 /**
  * @brief Commits any updated non-volatile parameters to non-volatile storage.

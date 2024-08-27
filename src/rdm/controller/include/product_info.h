@@ -13,9 +13,9 @@
 
 #include <stdint.h>
 
-#include "dmx/include/types.h"
-#include "rdm/controller.h"
-#include "rdm/include/types.h"
+#include "../../../dmx/include/types.h"
+#include "../../controller.h"
+#include "../../include/types.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -38,8 +38,7 @@ extern "C" {
  * @return The number of bytes that were received in the response parameter
  * data.
  */
-size_t rdm_send_get_device_info(dmx_port_t dmx_num, const rdm_uid_t *dest_uid,
-                                rdm_sub_device_t sub_device,
+size_t rdm_send_get_device_info(dmx_port_t dmx_num, const rdm_uid_t *dest_uid, rdm_sub_device_t sub_device,
                                 rdm_device_info_t *device_info, rdm_ack_t *ack);
 
 /**
@@ -63,11 +62,8 @@ size_t rdm_send_get_device_info(dmx_port_t dmx_num, const rdm_uid_t *dest_uid,
  * @return false if no response was received, was improperly formatted, or an
  * RDM_RESPONSE_TYPE_ACK was not received.
  */
-size_t rdm_send_get_software_version_label(dmx_port_t dmx_num,
-                                           const rdm_uid_t *dest_uid,
-                                           rdm_sub_device_t sub_device,
-                                           char *software_version_label,
-                                           size_t size, rdm_ack_t *ack);
+size_t rdm_send_get_software_version_label(dmx_port_t dmx_num, const rdm_uid_t *dest_uid, rdm_sub_device_t sub_device,
+                                           char *software_version_label, size_t size, rdm_ack_t *ack);
 
 #ifdef __cplusplus
 }

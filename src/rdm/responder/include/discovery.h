@@ -9,9 +9,9 @@
 
 #include <stdint.h>
 
-#include "dmx/include/types.h"
-#include "rdm/include/types.h"
-#include "rdm/responder.h"
+#include "../../../dmx/include/types.h"
+#include "../../include/types.h"
+#include "../../responder.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -29,8 +29,7 @@ extern "C" {
  * @return true if the PID response was registered.
  * @return false if there is not enough memory to register additional responses.
  */
-bool rdm_register_disc_unique_branch(dmx_port_t dmx_num, rdm_callback_t cb,
-                                     void *context);
+bool rdm_register_disc_unique_branch(dmx_port_t dmx_num, rdm_callback_t cb, void *context);
 
 /**
  * @brief Registers the default response to RDM_PID_DISC_MUTE requests. This
@@ -44,8 +43,7 @@ bool rdm_register_disc_unique_branch(dmx_port_t dmx_num, rdm_callback_t cb,
  * @return true if the PID response was registered.
  * @return false if there is not enough memory to register additional responses.
  */
-bool rdm_register_disc_mute(dmx_port_t dmx_num, rdm_callback_t cb,
-                            void *context);
+bool rdm_register_disc_mute(dmx_port_t dmx_num, rdm_callback_t cb, void *context);
 
 /**
  * @brief Registers the default response to RDM_PID_DISC_UN_MUTE requests. This
@@ -59,8 +57,7 @@ bool rdm_register_disc_mute(dmx_port_t dmx_num, rdm_callback_t cb,
  * @return true if the PID response was registered.
  * @return false if there is not enough memory to register additional responses.
  */
-bool rdm_register_disc_un_mute(dmx_port_t dmx_num, rdm_callback_t cb,
-                               void *context);
+bool rdm_register_disc_un_mute(dmx_port_t dmx_num, rdm_callback_t cb, void *context);
 
 #ifdef __cplusplus
 }

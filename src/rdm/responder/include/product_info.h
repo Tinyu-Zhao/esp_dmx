@@ -12,9 +12,9 @@
  */
 #pragma once
 
-#include "dmx/include/types.h"
-#include "rdm/include/types.h"
-#include "rdm/responder.h"
+#include "../../../dmx/include/types.h"
+#include "../../include/types.h"
+#include "../../responder.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -40,10 +40,8 @@ extern "C" {
  * @return true if the PID response was registered.
  * @return false if there is not enough memory to register additional responses.
  */
-bool rdm_register_device_info(dmx_port_t dmx_num, uint16_t model_id,
-                              uint16_t product_category,
-                              uint32_t software_version_id, rdm_callback_t cb,
-                              void *context);
+bool rdm_register_device_info(dmx_port_t dmx_num, uint16_t model_id, uint16_t product_category,
+                              uint32_t software_version_id, rdm_callback_t cb, void *context);
 
 /**
  * @brief Gets a copy of the RDM device info of this device.
@@ -71,8 +69,7 @@ size_t rdm_get_device_info(dmx_port_t dmx_num, rdm_device_info_t *device_info);
  * @return false if there is not enough memory to register additional
  * responses.
  */
-bool rdm_register_device_label(dmx_port_t dmx_num, const char *device_label,
-                               rdm_callback_t cb, void *context);
+bool rdm_register_device_label(dmx_port_t dmx_num, const char *device_label, rdm_callback_t cb, void *context);
 
 /**
  * @brief Gets the device label.
@@ -83,8 +80,7 @@ bool rdm_register_device_label(dmx_port_t dmx_num, const char *device_label,
  * @param size The size of the device label.
  * @return The number of bytes copied
  */
-size_t rdm_get_device_label(dmx_port_t dmx_num, char *device_label,
-                            size_t size);
+size_t rdm_get_device_label(dmx_port_t dmx_num, char *device_label, size_t size);
 
 /**
  * @brief Sets the device label.
@@ -96,8 +92,7 @@ size_t rdm_get_device_label(dmx_port_t dmx_num, char *device_label,
  * @return true on success.
  * @return false on failure.
  */
-bool rdm_set_device_label(dmx_port_t dmx_num, const char *device_label,
-                          size_t size);
+bool rdm_set_device_label(dmx_port_t dmx_num, const char *device_label, size_t size);
 /**
  * @brief Registers the default response to RDM_PID_SOFTWARE_VERSION_LABEL
  * requests. This response is required by all RDM-capable devices. It is
@@ -115,9 +110,8 @@ bool rdm_set_device_label(dmx_port_t dmx_num, const char *device_label,
  * @return false if there is not enough memory to register additional
  * responses.
  */
-bool rdm_register_software_version_label(dmx_port_t dmx_num,
-                                         const char *software_version_label,
-                                         rdm_callback_t cb, void *context);
+bool rdm_register_software_version_label(dmx_port_t dmx_num, const char *software_version_label, rdm_callback_t cb,
+                                         void *context);
 
 /**
  * @brief Gets a copy of the RDM software version label of this device.
@@ -128,9 +122,7 @@ bool rdm_register_software_version_label(dmx_port_t dmx_num,
  * @param size The size of the software_version_label buffer.
  * @return the number of bytes written to software_version_label.
  */
-size_t rdm_get_software_version_label(dmx_port_t dmx_num,
-                                      char *software_version_label,
-                                      size_t size);
+size_t rdm_get_software_version_label(dmx_port_t dmx_num, char *software_version_label, size_t size);
 
 /**
  * @brief Registers the default response to RDM_PID_MANUFACTURER_LABEL requests.
@@ -148,9 +140,7 @@ size_t rdm_get_software_version_label(dmx_port_t dmx_num,
  * @return false if there is not enough memory to register additional
  * responses.
  */
-bool rdm_register_manufacturer_label(dmx_port_t dmx_num,
-                                     char *manufacturer_label,
-                                     rdm_callback_t cb, void *context);
+bool rdm_register_manufacturer_label(dmx_port_t dmx_num, char *manufacturer_label, rdm_callback_t cb, void *context);
 
 /**
  * @brief Gets a copy of the RDM manufacturer label of this device.
@@ -161,8 +151,7 @@ bool rdm_register_manufacturer_label(dmx_port_t dmx_num,
  * @param size The size of the manufacturer_label buffer.
  * @return the number of bytes written to manufacturer_label.
  */
-size_t rdm_get_manufacturer_label(dmx_port_t dmx_num, char *manufacturer_label,
-                                  size_t size);
+size_t rdm_get_manufacturer_label(dmx_port_t dmx_num, char *manufacturer_label, size_t size);
 
 /**
  * @brief Registers the default response to RDM_PID_DEVICE_MODEL_DESCRIPTION
@@ -180,9 +169,8 @@ size_t rdm_get_manufacturer_label(dmx_port_t dmx_num, char *manufacturer_label,
  * @return false if there is not enough memory to register additional
  * responses.
  */
-bool rdm_register_device_model_description(dmx_port_t dmx_num,
-                                           const char *device_model_description,
-                                           rdm_callback_t cb, void *context);
+bool rdm_register_device_model_description(dmx_port_t dmx_num, const char *device_model_description, rdm_callback_t cb,
+                                           void *context);
 
 /**
  * @brief Gets a copy of the RDM device model description of this device.
@@ -193,9 +181,7 @@ bool rdm_register_device_model_description(dmx_port_t dmx_num,
  * @param size The size of the device_model_description buffer.
  * @return the number of bytes written to device_model_description.
  */
-size_t rdm_get_device_model_description(dmx_port_t dmx_num,
-                                        char *device_model_description,
-                                        size_t size);
+size_t rdm_get_device_model_description(dmx_port_t dmx_num, char *device_model_description, size_t size);
 
 /**
  * @brief Registers the default response to RDM_PID_LANGUAGE requests.
@@ -212,8 +198,7 @@ size_t rdm_get_device_model_description(dmx_port_t dmx_num,
  * @return false if there is not enough memory to register additional
  * responses.
  */
-bool rdm_register_language(dmx_port_t dmx_num, const char *language,
-                           rdm_callback_t cb, void *context);
+bool rdm_register_language(dmx_port_t dmx_num, const char *language, rdm_callback_t cb, void *context);
 
 /**
  * @brief Gets a copy of the current language in a two-character, ISO 639-1

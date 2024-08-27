@@ -8,7 +8,7 @@
  */
 #pragma once
 
-#include "dmx/include/types.h"
+#include "../../include/types.h"
 #include "driver/gpio.h"
 
 #ifdef __cplusplus

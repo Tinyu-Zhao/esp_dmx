@@ -1,7 +1,7 @@
 #pragma once
 
-#include "dmx/include/types.h"
-#include "rdm/include/types.h"
+#include "../../dmx/include/types.h"
+#include "./types.h"
 
 /**
  * @brief Returns the 48-bit unique ID of the desired DMX port. The specified
@@ -71,8 +71,7 @@ bool rdm_read_header(dmx_port_t dmx_num, rdm_header_t *header);
  * @param size The size of the destination buffer.
  * @return The size of the RDM parameter data or 0 on error.
  */
-size_t rdm_read_pd(dmx_port_t dmx_num, const char *format, void *destination,
-                   size_t size);
+size_t rdm_read_pd(dmx_port_t dmx_num, const char *format, void *destination, size_t size);
 
 /**
  * @brief Writes an RDM packet into the DMX driver buffer so it may be sent with
@@ -121,8 +120,7 @@ size_t rdm_read_pd(dmx_port_t dmx_num, const char *format, void *destination,
  * @param[in] pd A pointer which stores parameter data to be written.
  * @return The size of the RDM packet that was written or 0 on error.
  */
-size_t rdm_write(dmx_port_t dmx_num, const rdm_header_t *header,
-                 const char *format, const void *pd);
+size_t rdm_write(dmx_port_t dmx_num, const rdm_header_t *header, const char *format, const void *pd);
 
 /**
  * @brief Returns true if the RDM format string is valid.

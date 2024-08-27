@@ -6,11 +6,11 @@
  */
 #pragma once
 
-#include "dmx/include/parameter.h"
-#include "dmx/include/types.h"
-#include "rdm/include/driver.h"
-#include "rdm/include/types.h"
-#include "rdm/responder.h"
+#include "../../../dmx/include/parameter.h"
+#include "../../../dmx/include/types.h"
+#include "../../include/driver.h"
+#include "../../include/types.h"
+#include "../../responder.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -21,68 +21,65 @@ extern "C" {
  * parameter for RDM requests.
  */
 typedef struct rdm_parameter_definition_t {
-  /** @brief The command class that is supported by the parameter.*/
-  uint8_t pid_cc;
-  /** @brief The data type of the parameter.*/
-  uint8_t ds;
-  /** @brief The RDM command information.*/
-  struct rdm_command_t {
-    /** @brief The command information for the request and the response.*/
-    struct {
-      /** @brief The format of the command.*/
-      const char *format;
-    } request, response;
-    /** @brief The function that is called to handle the RDM request.*/
-    size_t (*handler)(dmx_port_t dmx_num,
-                      const struct rdm_parameter_definition_t *definition,
-                      const rdm_header_t *header);
-  } get, set;
-  /** @brief The maximum parameter data length for the parameter.*/
-  uint8_t pdl_size;
-  /** @brief The maximum value of the parameter. If this value is not
-     applicable, it should be left 0.*/
-  uint32_t max_value;
-  /** @brief The minimum value of the parameter. If this value is not
-     applicable, it should be left 0.*/
-  uint32_t min_value;
-  /** @brief The default value of the parameter. If this value is not
-     applicable, it should be left 0.*/
-  uint32_t default_value;
-  /** @brief The unit type for this parameter, one of rdm_unit_t.*/
-  uint8_t units;
-  /** @brief The prefix for this parameter, one of rdm_prefix_t.*/
-  uint8_t prefix;
-  /** @brief The ASCII description of the parameter.*/
-  const char *description;
+    /** @brief The command class that is supported by the parameter.*/
+    uint8_t pid_cc;
+    /** @brief The data type of the parameter.*/
+    uint8_t ds;
+    /** @brief The RDM command information.*/
+    struct rdm_command_t {
+        /** @brief The command information for the request and the response.*/
+        struct {
+            /** @brief The format of the command.*/
+            const char *format;
+        } request, response;
+        /** @brief The function that is called to handle the RDM request.*/
+        size_t (*handler)(dmx_port_t dmx_num, const struct rdm_parameter_definition_t *definition,
+                          const rdm_header_t *header);
+    } get, set;
+    /** @brief The maximum parameter data length for the parameter.*/
+    uint8_t pdl_size;
+    /** @brief The maximum value of the parameter. If this value is not
+       applicable, it should be left 0.*/
+    uint32_t max_value;
+    /** @brief The minimum value of the parameter. If this value is not
+       applicable, it should be left 0.*/
+    uint32_t min_value;
+    /** @brief The default value of the parameter. If this value is not
+       applicable, it should be left 0.*/
+    uint32_t default_value;
+    /** @brief The unit type for this parameter, one of rdm_unit_t.*/
+    uint8_t units;
+    /** @brief The prefix for this parameter, one of rdm_prefix_t.*/
+    uint8_t prefix;
+    /** @brief The ASCII description of the parameter.*/
+    const char *description;
 } rdm_parameter_definition_t;
 
 /**
  * @brief Writes an ACK packet response to a RDM request packet. This function
  * uses the header of an RDM request packet to write a response. The header for
  * the RDM request must be a valid RDM request header.
- * 
+ *
  * @param dmx_num The DMX port number.
  * @param[in] header A pointer to the header of the RDM request packet.
- * @param[in] format The format string of the RDM parameter data. 
+ * @param[in] format The format string of the RDM parameter data.
  * @param[in] pd A pointer to the parameter data for the RDM ACK packet.
  * @param pdl The parameter data length of the RDM ack packet.
  * @return The number of bytes written.
  */
-size_t rdm_write_ack(dmx_port_t dmx_num, const rdm_header_t *header,
-                     const char *format, const void *pd, size_t pdl);
+size_t rdm_write_ack(dmx_port_t dmx_num, const rdm_header_t *header, const char *format, const void *pd, size_t pdl);
 
 /**
  * @brief Writes an NACK packet response to a RDM request packet. This function
  * uses the header of an RDM request packet to write a response. The header for
  * the RDM request must be a valid RDM request header.
- * 
+ *
  * @param dmx_num The DMX port number.
  * @param[in] header A pointer to the header of the RDM request packet.
  * @param nack_reason The NACK reason for the RDM response packet.
  * @return The number of bytes written.
  */
-size_t rdm_write_nack_reason(dmx_port_t dmx_num, const rdm_header_t *header,
-                             rdm_nr_t nack_reason);
+size_t rdm_write_nack_reason(dmx_port_t dmx_num, const rdm_header_t *header, rdm_nr_t nack_reason);
 
 /*
 // TODO: implement rdm_write_ack_timer()
@@ -119,8 +116,7 @@ bool rdm_get_boot_loader(dmx_port_t dmx_num);
  */
 void rdm_set_boot_loader(dmx_port_t dmx_num);
 
-size_t rdm_simple_response_handler(dmx_port_t dmx_num,
-                                   const rdm_parameter_definition_t *definition,
+size_t rdm_simple_response_handler(dmx_port_t dmx_num, const rdm_parameter_definition_t *definition,
                                    const rdm_header_t *header);
 
 /**
@@ -140,8 +136,7 @@ size_t rdm_simple_response_handler(dmx_port_t dmx_num,
  * @return true on success.
  * @return false on failure.
  */
-bool rdm_definition_set(dmx_port_t dmx_num, rdm_sub_device_t sub_device,
-                        rdm_pid_t pid,
+bool rdm_definition_set(dmx_port_t dmx_num, rdm_sub_device_t sub_device, rdm_pid_t pid,
                         const rdm_parameter_definition_t *definition);
 
 /**
@@ -152,8 +147,7 @@ bool rdm_definition_set(dmx_port_t dmx_num, rdm_sub_device_t sub_device,
  * @param pid The parameter ID of the desired parameter.
  * @return A pointer to the RDM definition or NULL on failure.
  */
-const rdm_parameter_definition_t *rdm_definition_get(
-    dmx_port_t dmx_num, rdm_sub_device_t sub_device, rdm_pid_t pid);
+const rdm_parameter_definition_t *rdm_definition_get(dmx_port_t dmx_num, rdm_sub_device_t sub_device, rdm_pid_t pid);
 
 /**
  * @brief Sets the callback function and context for requests to the desired
@@ -169,8 +163,8 @@ const rdm_parameter_definition_t *rdm_definition_get(
  * @return true on success.
  * @return false on failure.
  */
-bool rdm_callback_set(dmx_port_t dmx_num, rdm_sub_device_t sub_device,
-                      rdm_pid_t pid, rdm_callback_t callback, void *context);
+bool rdm_callback_set(dmx_port_t dmx_num, rdm_sub_device_t sub_device, rdm_pid_t pid, rdm_callback_t callback,
+                      void *context);
 
 #ifdef __cplusplus
 }

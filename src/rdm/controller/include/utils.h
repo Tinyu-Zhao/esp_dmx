@@ -8,9 +8,9 @@
 
 #include <stdint.h>
 
-#include "dmx/include/types.h"
-#include "rdm/controller.h"
-#include "rdm/include/types.h"
+#include "../../../dmx/include/types.h"
+#include "../../controller.h"
+#include "../../include/types.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -21,13 +21,13 @@ extern "C" {
  * information needed to address a request on the RDM bus.
  */
 typedef struct rdm_request_t {
-  const rdm_uid_t *dest_uid;    // The destination UID of the request.
-  rdm_sub_device_t sub_device;  // The target sub-device of the request.
-  rdm_cc_t cc;                  // The command class of the request.
-  rdm_pid_t pid;                // The parameter ID.
-  const char *format;           // The format string for the parameter data.
-  const void *pd;  // A pointer to the parameter data of the request.
-  size_t pdl;      // The parameter data length of the request.
+    const rdm_uid_t *dest_uid;    // The destination UID of the request.
+    rdm_sub_device_t sub_device;  // The target sub-device of the request.
+    rdm_cc_t cc;                  // The command class of the request.
+    rdm_pid_t pid;                // The parameter ID.
+    const char *format;           // The format string for the parameter data.
+    const void *pd;               // A pointer to the parameter data of the request.
+    size_t pdl;                   // The parameter data length of the request.
 } rdm_request_t;
 
 /**
@@ -77,8 +77,7 @@ typedef struct rdm_request_t {
  * @return When an RDM_RESPONSE_TYPE_ACK response is received, the response PDL
  * is returned or true if there is no parameter data received. 0 on failure.
  */
-size_t rdm_send_request(dmx_port_t dmx_num, const rdm_request_t *request,
-                        const char *format, void *pd, size_t size,
+size_t rdm_send_request(dmx_port_t dmx_num, const rdm_request_t *request, const char *format, void *pd, size_t size,
                         rdm_ack_t *ack);
 
 /**

@@ -7,7 +7,7 @@
  */
 #pragma once
 
-#include "dmx/include/types.h"
+#include "types.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -78,8 +78,7 @@ size_t dmx_get_footprint(dmx_port_t dmx_num, uint8_t personality_num);
  * Personality numbers are indexed starting at 1.
  * @return The description of the DMX personality or NULL on failure.
  */
-const char *dmx_get_personality_description(dmx_port_t dmx_num,
-                                            uint8_t personality_num);
+const char *dmx_get_personality_description(dmx_port_t dmx_num, uint8_t personality_num);
 
 #ifdef __cplusplus
 }

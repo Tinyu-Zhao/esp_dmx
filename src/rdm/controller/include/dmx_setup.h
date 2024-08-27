@@ -10,9 +10,9 @@
 
 #include <stdint.h>
 
-#include "dmx/include/types.h"
-#include "rdm/controller.h"
-#include "rdm/include/types.h"
+#include "../../../dmx/include/types.h"
+#include "../../controller.h"
+#include "../../include/types.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -36,11 +36,8 @@ extern "C" {
  * @return The number of bytes that were received in the response parameter
  * data.
  */
-size_t rdm_send_get_dmx_start_address(dmx_port_t dmx_num,
-                                      const rdm_uid_t *dest_uid,
-                                      rdm_sub_device_t sub_device,
-                                      uint16_t *dmx_start_address,
-                                      rdm_ack_t *ack);
+size_t rdm_send_get_dmx_start_address(dmx_port_t dmx_num, const rdm_uid_t *dest_uid, rdm_sub_device_t sub_device,
+                                      uint16_t *dmx_start_address, rdm_ack_t *ack);
 
 /**
  * @brief Sends an RDM SET DMX start address request and reads the response, if
@@ -61,11 +58,8 @@ size_t rdm_send_get_dmx_start_address(dmx_port_t dmx_num,
  * @return false if no response was received, was improperly formatted, or an
  * RDM_RESPONSE_TYPE_ACK was not received.
  */
-bool rdm_send_set_dmx_start_address(dmx_port_t dmx_num,
-                                    const rdm_uid_t *dest_uid,
-                                    rdm_sub_device_t sub_device,
-                                    const uint16_t dmx_start_address,
-                                    rdm_ack_t *ack);
+bool rdm_send_set_dmx_start_address(dmx_port_t dmx_num, const rdm_uid_t *dest_uid, rdm_sub_device_t sub_device,
+                                    const uint16_t dmx_start_address, rdm_ack_t *ack);
 
 #ifdef __cplusplus
 }

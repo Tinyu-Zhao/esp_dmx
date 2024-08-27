@@ -11,9 +11,9 @@
 
 #include <stdint.h>
 
-#include "dmx/include/types.h"
-#include "rdm/controller.h"
-#include "rdm/include/types.h"
+#include "../../../dmx/include/types.h"
+#include "../../controller.h"
+#include "../../include/types.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,8 +28,8 @@ extern "C" {
  * @param[out] mute A pointer to the mute parameter received by the device.
  * @param[inout] context A pointer to a user context.
  */
-typedef void (*rdm_disc_cb_t)(dmx_port_t dmx_num, rdm_uid_t uid, int num_found,
-                              const rdm_disc_mute_t *mute, void *context);
+typedef void (*rdm_disc_cb_t)(dmx_port_t dmx_num, rdm_uid_t uid, int num_found, const rdm_disc_mute_t *mute,
+                              void *context);
 
 /**
  * @brief Sends an RDM discovery unique branch request and reads the response,
@@ -50,9 +50,7 @@ typedef void (*rdm_disc_cb_t)(dmx_port_t dmx_num, rdm_uid_t uid, int num_found,
  * @return false if no response was received, was improperly formatted, or an
  * RDM_RESPONSE_TYPE_ACK was not received.
  */
-bool rdm_send_disc_unique_branch(dmx_port_t dmx_num,
-                                 const rdm_disc_unique_branch_t *branch,
-                                 rdm_ack_t *ack);
+bool rdm_send_disc_unique_branch(dmx_port_t dmx_num, const rdm_disc_unique_branch_t *branch, rdm_ack_t *ack);
 
 /**
  * @brief Sends an RDM discovery mute request and reads the response, if any.
@@ -73,8 +71,7 @@ bool rdm_send_disc_unique_branch(dmx_port_t dmx_num,
  * @return false if no response was received, the response was improperly
  * formatted, or an RDM_RESPONSE_TYPE_ACK was not received.
  */
-bool rdm_send_disc_mute(dmx_port_t dmx_num, const rdm_uid_t *dest_uid,
-                        rdm_disc_mute_t *mute, rdm_ack_t *ack);
+bool rdm_send_disc_mute(dmx_port_t dmx_num, const rdm_uid_t *dest_uid, rdm_disc_mute_t *mute, rdm_ack_t *ack);
 
 /**
  * @brief Sends an RDM discovery un-mute request and reads the response, if any.
@@ -95,8 +92,7 @@ bool rdm_send_disc_mute(dmx_port_t dmx_num, const rdm_uid_t *dest_uid,
  * @return false if no response was received, the response was improperly
  * formatted, or an RDM_RESPONSE_TYPE_ACK was not received.
  */
-bool rdm_send_disc_un_mute(dmx_port_t dmx_num, const rdm_uid_t *dest_uid,
-                           rdm_disc_mute_t *mute, rdm_ack_t *ack);
+bool rdm_send_disc_un_mute(dmx_port_t dmx_num, const rdm_uid_t *dest_uid, rdm_disc_mute_t *mute, rdm_ack_t *ack);
 
 /**
  * @brief Performs the RDM device discovery algorithm and executes a callback
@@ -117,8 +113,7 @@ bool rdm_send_disc_un_mute(dmx_port_t dmx_num, const rdm_uid_t *dest_uid,
  * new device is found.
  * @return The number of devices found.
  */
-int rdm_discover_with_callback(dmx_port_t dmx_num, rdm_disc_cb_t cb,
-                               void *context);
+int rdm_discover_with_callback(dmx_port_t dmx_num, rdm_disc_cb_t cb, void *context);
 
 /**
  * @brief Performs the RDM device discovery algorithm with a default callback
@@ -138,8 +133,7 @@ int rdm_discover_with_callback(dmx_port_t dmx_num, rdm_disc_cb_t cb,
  * @param num The number of elements of the provided UID array.
  * @return The number of devices found.
  */
-int rdm_discover_devices_simple(dmx_port_t dmx_num, rdm_uid_t *uids,
-                                unsigned int num);
+int rdm_discover_devices_simple(dmx_port_t dmx_num, rdm_uid_t *uids, unsigned int num);
 
 #ifdef __cplusplus
 }

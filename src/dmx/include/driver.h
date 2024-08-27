@@ -7,7 +7,7 @@
  */
 #pragma once
 
-#include "dmx/include/types.h"
+#include "types.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -36,8 +36,7 @@ extern "C" {
  * @return true on success.
  * @return false on failure.
  */
-bool dmx_driver_install(dmx_port_t dmx_num, const dmx_config_t *config,
-                        const dmx_personality_t *personalities,
+bool dmx_driver_install(dmx_port_t dmx_num, const dmx_config_t *config, const dmx_personality_t *personalities,
                         int personality_count);
 
 /**
@@ -207,8 +206,7 @@ uint32_t dmx_set_mab_len(dmx_port_t dmx_num, uint32_t mab_len);
  * @param size The size of the destination buffer.
  * @return The number of bytes read from the DMX driver.
  */
-size_t dmx_read_offset(dmx_port_t dmx_num, size_t offset, void *destination,
-                       size_t size);
+size_t dmx_read_offset(dmx_port_t dmx_num, size_t offset, void *destination, size_t size);
 
 /**
  * @brief Reads DMX data from the driver into a destination buffer.
@@ -242,8 +240,7 @@ int dmx_read_slot(dmx_port_t dmx_num, size_t slot_num);
  * @param size The size of the source buffer.
  * @return The number of bytes written into the DMX driver.
  */
-size_t dmx_write_offset(dmx_port_t dmx_num, size_t offset, const void *source,
-                        size_t size);
+size_t dmx_write_offset(dmx_port_t dmx_num, size_t offset, const void *source, size_t size);
 
 /**
  * @brief Writes DMX data from a source buffer into the DMX driver buffer. Data
@@ -286,8 +283,7 @@ int dmx_write_slot(dmx_port_t dmx_num, size_t slot_num, uint8_t value);
  * @param wait_ticks The number of ticks to wait before this function times out.
  * @return The size of the received DMX packet or 0 if no packet was received.
  */
-size_t dmx_receive_num(dmx_port_t dmx_num, dmx_packet_t *packet, size_t size,
-                       TickType_t wait_ticks);
+size_t dmx_receive_num(dmx_port_t dmx_num, dmx_packet_t *packet, size_t size, TickType_t wait_ticks);
 
 /**
  * @brief Receives a DMX packet from the DMX bus. This is a blocking function.
@@ -305,8 +301,7 @@ size_t dmx_receive_num(dmx_port_t dmx_num, dmx_packet_t *packet, size_t size,
  * @param wait_ticks The number of ticks to wait before this function times out.
  * @return The size of the received DMX packet or 0 if no packet was received.
  */
-size_t dmx_receive(dmx_port_t dmx_num, dmx_packet_t *packet,
-                   TickType_t wait_ticks);
+size_t dmx_receive(dmx_port_t dmx_num, dmx_packet_t *packet, TickType_t wait_ticks);
 
 /**
  * @brief Sends a DMX packet on the DMX bus. This function blocks until the DMX

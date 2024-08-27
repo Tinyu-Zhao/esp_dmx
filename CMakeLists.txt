@@ -25,4 +25,4 @@ idf_component_register(
        "src/rdm/responder/power_lamp.c" "src/rdm/responder/utils.c"
   INCLUDE_DIRS "src"
   REQUIRES driver esp_timer esp_common esp_hw_support nvs_flash
-)   
+)

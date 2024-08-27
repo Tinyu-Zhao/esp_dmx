@@ -11,9 +11,9 @@
 
 #include <stdint.h>
 
-#include "dmx/include/types.h"
-#include "rdm/controller.h"
-#include "rdm/include/types.h"
+#include "../../../dmx/include/types.h"
+#include "../../controller.h"
+#include "../../include/types.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -37,10 +37,8 @@ extern "C" {
  * @return The number of bytes that were received in the response parameter
  * data.
  */
-size_t rdm_send_get_identify_device(dmx_port_t dmx_num,
-                                    const rdm_uid_t *dest_uid,
-                                    rdm_sub_device_t sub_device, bool *identify,
-                                    rdm_ack_t *ack);
+size_t rdm_send_get_identify_device(dmx_port_t dmx_num, const rdm_uid_t *dest_uid, rdm_sub_device_t sub_device,
+                                    bool *identify, rdm_ack_t *ack);
 
 /**
  * @brief Sends an RDM SET identify device request and reads the response, if
@@ -61,8 +59,7 @@ size_t rdm_send_get_identify_device(dmx_port_t dmx_num,
  * @return false if no response was received, was improperly formatted, or an
  * RDM_RESPONSE_TYPE_ACK was not received.
  */
-bool rdm_send_set_identify_device(dmx_port_t dmx_num, const rdm_uid_t *dest_uid,
-                                  rdm_sub_device_t sub_device,
+bool rdm_send_set_identify_device(dmx_port_t dmx_num, const rdm_uid_t *dest_uid, rdm_sub_device_t sub_device,
                                   const uint8_t identify, rdm_ack_t *ack);
 
 #ifdef __cplusplus

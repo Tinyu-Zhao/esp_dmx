@@ -8,8 +8,8 @@
 
 #include <stdbool.h>
 
-#include "dmx/include/types.h"
-#include "rdm/include/types.h"
+#include "../dmx/include/types.h"
+#include "./include/types.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -47,10 +47,10 @@ bool rdm_send_response(dmx_port_t dmx_num);
 }
 #endif
 
-#include "rdm/responder/include/device_control.h"
-#include "rdm/responder/include/discovery.h"
-#include "rdm/responder/include/dmx_setup.h"
-#include "rdm/responder/include/product_info.h"
-#include "rdm/responder/include/queue_status.h"
-#include "rdm/responder/include/rdm_info.h"
-#include "rdm/responder/include/sensor_parameter.h"
+#include "./responder/include/device_control.h"
+#include "./responder/include/discovery.h"
+#include "./responder/include/dmx_setup.h"
+#include "./responder/include/product_info.h"
+#include "./responder/include/queue_status.h"
+#include "./responder/include/rdm_info.h"
+#include "./responder/include/sensor_parameter.h"
